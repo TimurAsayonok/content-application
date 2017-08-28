@@ -4,6 +4,16 @@ import {
   Text,
   ScrollView
 } from 'react-native'
+import { gql, graphql } from 'react-apollo'
+
+const FeedQuery = gql`
+  {
+    tileset(t: Article){
+      id
+      title
+    }
+  }
+`;
 
 class HomeScreenContainer extends Component {
   render() {
@@ -18,7 +28,7 @@ class HomeScreenContainer extends Component {
         >
         <View style={{
           flex: 1,
-          marginTop: 20,}}>
+          marginTop: 30,}}>
             <Text style={{
               fontSize: 40,
               fontWeight: "900",
@@ -33,4 +43,4 @@ class HomeScreenContainer extends Component {
   }
 }
 
-export default HomeScreenContainer;
+export default graphql(FeedQuery)(HomeScreenContainer);

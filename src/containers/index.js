@@ -1,9 +1,9 @@
 import { Navigation } from 'react-native-navigation'
 
-import HomeScreenContainer from './HomeScreenContainer'
+import NewsScreenContainer from './news/NewsScreenContainer'
 import HelloScreenContainer from './auth/HelloScreenContainer'
 
-export function registerScreens(store, Provider) {
-  Navigation.registerComponent('HomeScreen', () => HomeScreenContainer, store, Provider);
-  Navigation.registerComponent('HelloScreen', () => HelloScreenContainer, store, Provider);
+export function registerScreens(store, Provider, client) {
+  Navigation.registerComponent('NewsScreen', () => NewsScreenContainer, store, Provider, {client: client});
+  Navigation.registerComponent('HelloScreen', () => HelloScreenContainer, store, Provider, { client: client });
 }

@@ -1,7 +1,15 @@
 import React from 'react'
 import { Navigation } from 'react-native-navigation'
 import { Provider } from 'react-redux'
+import { ApolloProvider, ApolloClient, createNetworkInterface } from 'react-apollo'
 import configureStore from './store/configureStore'
+
+const clientApollo = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: 'https://mobileapi.wp.pl/v1/graphql',
+  }),
+});
+
 
 import { registerScreens } from './containers'
 
@@ -12,7 +20,7 @@ export const enterToApp = () => {
     tabs: [
       {
         label: 'News',
-        screen: 'HomeScreen', // this is a registered name for a screen
+        screen: 'NewsScreen', // this is a registered name for a screen
         title: 'News',
         icon: require('./images/iconNews0.png'),
         selectedIcon: require('./images/iconNews1.png'),
@@ -22,7 +30,7 @@ export const enterToApp = () => {
       },
       {
         label: 'Categories',
-        screen: 'HomeScreen',
+        screen: 'NewsScreen',
         title: 'Categories',
         icon: require('./images/iconList0.png'),
         selectedIcon: require('./images/iconList1.png'),
@@ -32,7 +40,7 @@ export const enterToApp = () => {
       },
       {
         label: 'About',
-        screen: 'HomeScreen',
+        screen: 'NewsScreen',
         title: 'About',
         icon: require('./images/iconOther0.png'),
         selectedIcon: require('./images/iconOther.png'),
@@ -59,5 +67,5 @@ export const goToHelloScreen = () => {
   });
 }
 
-registerScreens(store, Provider);
+registerScreens(store, ApolloProvider, clientApollo);
 goToHelloScreen();
