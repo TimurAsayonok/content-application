@@ -47,16 +47,17 @@ export const enterToApp = () => {
     }
   });
 }
+
 export const goToHelloScreen = () => {
-  Navigation.startSingleScreen({
+  Navigation.startSingleScreenApp({
     screen: {
-      screen: '',
-      navigatorStile: {
+      screen: 'HelloScreen',
+      navigatorStyle: {
         navBarHidden: true
       }
     }
-  })
+  });
 }
 
 registerScreens(store, Provider);
-enterToApp();
+goToHelloScreen();
