@@ -30,7 +30,7 @@ export const enterToApp = () => {
       },
       {
         label: 'Categories',
-        screen: 'NewsScreen',
+        screen: 'CategoriesScreen',
         title: 'Categories',
         icon: require('./images/iconList0.png'),
         selectedIcon: require('./images/iconList1.png'),
@@ -40,7 +40,7 @@ export const enterToApp = () => {
       },
       {
         label: 'About',
-        screen: 'NewsScreen',
+        screen: 'AboutScreen',
         title: 'About',
         icon: require('./images/iconOther0.png'),
         selectedIcon: require('./images/iconOther.png'),

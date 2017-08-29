@@ -12,13 +12,28 @@ const FeedQuery = gql`
     tileset(t: Article){
       id
       title
+      ts
+      url
+      author {
+        img
+        name
+      }
     }
   }
 `;
 
 class NewsScreenContainer extends Component {
+  renderNews(article) {
+    console.log(article)
+    return(
+      <Text>{article.title}</Text>
+    )
+  }
+
   render() {
-    console.log(this.props)
+    const { data } = this.props;
+    const { tileset } = data;
+    console.log(tileset);
     return (
       <View style={{ flex: 1 }}>
         <ScrollView
@@ -44,7 +59,9 @@ class NewsScreenContainer extends Component {
             </Text>
           </View>
           <View style={{ flex: 1, margin: 20 }}>
-            
+            {tileset && tileset.map((acticle) => {
+              this.renderNews(acticle);
+            })}
           </View>
         </ScrollView>
       </View>
