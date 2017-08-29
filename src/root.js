@@ -25,7 +25,10 @@ export const enterToApp = () => {
         icon: require('./images/iconNews0.png'),
         selectedIcon: require('./images/iconNews1.png'),
         navigatorStyle: {
-          navBarHidden: true
+          navBarHidden: true,
+          statusBarBlur: true,
+          navBarTranslucent: true,
+          drawUnderNavBar: true
         },
       },
       {
@@ -35,7 +38,10 @@ export const enterToApp = () => {
         icon: require('./images/iconList0.png'),
         selectedIcon: require('./images/iconList1.png'),
         navigatorStyle: {
-          navBarHidden: true
+          navBarHidden: true,
+          statusBarBlur: true,
+          navBarTranslucent: true,
+          drawUnderNavBar: true
         },
       },
       {
@@ -45,7 +51,10 @@ export const enterToApp = () => {
         icon: require('./images/iconOther0.png'),
         selectedIcon: require('./images/iconOther.png'),
         navigatorStyle: {
-          navBarHidden: true
+          navBarHidden: true,
+          statusBarBlur: true,
+          navBarTranslucent: true,
+          drawUnderNavBar: true
         },
       }
     ],
@@ -61,7 +70,8 @@ export const goToHelloScreen = () => {
     screen: {
       screen: 'HelloScreen',
       navigatorStyle: {
-        navBarHidden: true
+        navBarHidden: true,
+        statusBarBlur: true,
       }
     }
   });
