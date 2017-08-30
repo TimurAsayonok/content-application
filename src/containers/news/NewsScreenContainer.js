@@ -36,7 +36,7 @@ class NewsScreenContainer extends Component {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>
-          {!service && <Header title="All News" />}
+          {!service && <Header title="News" />}
           <NewsComponent 
             articles={articles}
             fetching={fetching}
