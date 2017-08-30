@@ -6,6 +6,10 @@ const Styles = StyleSheet.create({
     letterSpacing: 0.05,
     color: "#000000"
   },
+  container: {
+    flex: 1, 
+    margin: 20
+  },
   buttonContainer: {
     flex: 1,
     height: 35,
