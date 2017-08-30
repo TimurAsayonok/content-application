@@ -4,6 +4,9 @@ import {
   ScrollView
 } from 'react-native'
 import { Header, AboutComponent } from '../../components'
+import { logout } from '../../actions/auth/auth'
+import { connect } from 'react-redux'
+import { goToHelloScreen } from '../../root'
 
 
 class AboutScreenContainer extends Component {
@@ -15,11 +18,20 @@ class AboutScreenContainer extends Component {
           scrollEnabled={false}
         >
           <Header title="About" />
-          <AboutComponent />
+          <AboutComponent goToLoginScreen={() => { this.goToLoginScreen() }}/>
         </ScrollView>
       </View>
     )
   }
+
+  goToLoginScreen() {
+    this.props.dispatch(logout());
+    goToHelloScreen();
+  }
 }
 
-export default AboutScreenContainer;
+const mapStateToProps = (state) => {
+  return {}
+}
+
+export default connect(mapStateToProps, dispatch => ({ dispatch }))(AboutScreenContainer);

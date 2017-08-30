@@ -2,10 +2,13 @@ import React from 'react'
 import { Navigation } from 'react-native-navigation'
 import { Provider } from 'react-redux'
 import { ApolloProvider, ApolloClient, createNetworkInterface } from 'react-apollo'
-import { store } from './store/configureStore'
+import configureStore from './store/configureStore'
 import client from './client'
 import { registerScreens } from './containers'
+import { persistStore } from 'redux-persist';
+import persistConfig from './config/persist';
 
+export const store = configureStore();
 
 export const enterToApp = () => {
   Navigation.startTabBasedApp({
@@ -70,4 +73,12 @@ export const goToHelloScreen = () => {
 }
 
 registerScreens(store, ApolloProvider, client);
-goToHelloScreen();
+
+persistStore(store, persistConfig, () => {
+  const auth = store.getState().auth;
+  if (auth.login) {
+    enterToApp();
+  } else {
+    goToHelloScreen();
+  }
+});

@@ -5,6 +5,8 @@ import {
 } from 'react-native'
 import { Header, HelloComponent } from '../../components'
 import { enterToApp } from '../../root'
+import { login } from '../../actions/auth/auth'
+import { connect } from 'react-redux'
 
 class HelloScreenContainer extends Component {
   render() {
@@ -15,11 +17,20 @@ class HelloScreenContainer extends Component {
           scrollEnabled={false}
         >
           <Header title="Hello Screen" />
-          <HelloComponent enterToApp={enterToApp}/>
+          <HelloComponent enterToApp={() => {this.goToApp()}}/>
         </ScrollView>
       </View>
     )
   }
+
+  goToApp() {
+    this.props.dispatch(login());
+    enterToApp();
+  }
 }
 
-export default HelloScreenContainer;
+const mapStateToProps = (state) => {
+  return {}
+}
+
+export default connect(mapStateToProps, dispatch => ({ dispatch }))(HelloScreenContainer);
