@@ -1,57 +1,52 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   View,
   Text,
   ScrollView,
   TouchableOpacity,
   Image,
-  StatusBar
+  ActivityIndicator
 } from 'react-native'
 import ResponsiveImage from 'react-native-responsive-image';
 import { Header, NewsComponent } from '../../components'
-import { gql, graphql } from 'react-apollo'
-
-const FeedQuery = gql`
-  {
-    articles(t: Article ){
-      title
-      id
-      cid
-      ts
-      redacted_title
-      img {
-        url
-        h
-        w
-      }
-      entities {
-        author
-        description
-        title
-      }
-      original_cid
-      t
-      tags
-      author {
-        img
-        name
-      }
-      body(t: Plain){
-        data
-      }
-    }
-  }
-`;
+import { fetchNews } from '../../actions/news/news'
+import { connect } from 'react-redux';
 
 class NewsScreenContainer extends Component {
-  render() {
-    const { data } = this.props;
-    const { articles } = data;
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount() {
+    const { dispatch, service } = this.props;
     console.log(this.props);
+    dispatch(fetchNews(service));
+  }
+
+  renderSpinner() {
+    return (<View style={{
+      flex: 1, position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      justifyContent: 'center',
+      alignItems: 'center'}}>
+      <ActivityIndicator />
+    </View>);
+  }
+
+  render() {
+    const { articles, fetching, service } = this.props;
+    console.log(this.props);
+    if (fetching) {
+      return this.renderSpinner();
+    }
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>
-          {!this.props.service && <Header title="All News" />}
+          {!service && <Header title="All News" />}
           <NewsComponent 
             articles={articles} 
             goToArticleScreen={(article) => {
@@ -78,4 +73,17 @@ class NewsScreenContainer extends Component {
   }
 }
 
-export default graphql(FeedQuery)(NewsScreenContainer);
+const mapStateToProps = (state) => {
+  return {
+    fetching: state.news.fetching,
+    articles: state.news.articles
+  }
+}
+
+NewsScreenContainer.protoTypes = {
+  fetching: PropTypes.bool,
+  articles: PropTypes.array,
+  service: PropTypes.string
+}
+
+export default connect(mapStateToProps, dispatch => ({ dispatch }))(NewsScreenContainer);

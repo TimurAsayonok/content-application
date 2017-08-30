@@ -9,13 +9,13 @@ import {
 import { Header, CategoriesComponent } from '../../components'
 import { CATEGORIES } from '../../constants/commons'
 
+
 class CategoriesScreenContainer extends Component {
   constructor(props){
     super(props);
   }
 
   render() {
-    const { data } = this.props;
     return (
       <View style={{ flex: 1 }}>
         <ScrollView

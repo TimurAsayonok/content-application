@@ -1,40 +1,19 @@
 import gql from 'graphql-tag';
+import client from '../../client';
+import { fetchNewsQuery } from '../graphql/queries'
 
-export const getData = ({categoryName}) => {
-  //console.log(categoryName);
-  const elements = false ? `t:Article service: ${categoryName} ` : `t: Article`;
-
-  qql`
-    query DataQuery($type : Article $service: ${categoryName})
-  `
-
-  return gql`{
-    articles(${elements}){
-      title
-      id
-      cid
-      ts
-      redacted_title
-      img {
-        url
-        h
-        w
+export function fetchNews(serviceName) {
+  return (dispatch) => {
+    dispatch({type:'FETCH_NEWS_START'});
+    client.query({
+      query: fetchNewsQuery,
+      variables: { serv: serviceName }
+    }).then((response) => {
+      if(response.data){
+        dispatch({type: 'FETCH_NEWS_SUCCESS', payload: response.data});
+      } else {
+        dispatch({ type: 'FETCH_NEWS_ERROR'});
       }
-      entities {
-        author
-        description
-        title
-      }
-      original_cid
-      t
-      tags
-      author {
-        img
-        name
-      }
-      body(t: Plain){
-        data
-      }
-    }
-  }`;
+    })
+  }
 }

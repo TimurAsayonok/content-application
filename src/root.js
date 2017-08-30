@@ -2,18 +2,10 @@ import React from 'react'
 import { Navigation } from 'react-native-navigation'
 import { Provider } from 'react-redux'
 import { ApolloProvider, ApolloClient, createNetworkInterface } from 'react-apollo'
-import configureStore from './store/configureStore'
-
-const clientApollo = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: 'https://mobileapi.wp.pl/v1/graphql',
-  }),
-});
-
-
+import { store } from './store/configureStore'
+import client from './client'
 import { registerScreens } from './containers'
 
-export const store = configureStore();
 
 export const enterToApp = () => {
   Navigation.startTabBasedApp({
@@ -29,7 +21,7 @@ export const enterToApp = () => {
           statusBarBlur: true,
           navBarTranslucent: true,
           drawUnderNavBar: true
-        },
+        }
       },
       {
         label: 'Categories',
@@ -77,5 +69,5 @@ export const goToHelloScreen = () => {
   });
 }
 
-registerScreens(store, ApolloProvider, clientApollo);
+registerScreens(store, ApolloProvider, client);
 goToHelloScreen();
