@@ -5,6 +5,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
+import { Header } from '../../components';
 import { enterToApp } from '../../root';
 
 class HelloScreenContainer extends Component {
@@ -18,22 +19,7 @@ class HelloScreenContainer extends Component {
             backgroundColor: 'white',
           }}
         >
-          <View style={{
-            flex: 1,
-            marginTop: 25,
-            marginLeft: 20,
-            borderBottomColor: '#c9c9c9',
-            borderBottomWidth: 1
-          }}>
-            <Text style={{
-              fontSize: 40,
-              fontWeight: "900",
-              letterSpacing: 0.11,
-              color: "#000000"
-            }}>
-              Hello Screen
-            </Text>
-          </View>
+          <Header title="Hello Screen" />
           <View style={{ flex: 1, margin: 20}}>
             <Text style={{
               fontSize: 20,

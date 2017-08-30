@@ -5,22 +5,7 @@ import {
   ScrollView,
   Image
 } from 'react-native'
-import { gql, graphql } from 'react-apollo'
 
-// const FeedQuery = gql`
-//   {
-//     tileset(t: Article){
-//       id
-//       title
-//       ts
-//       url
-//       author {
-//         img
-//         name
-//       }
-//     }
-//   }
-// `;
 
 class ArticleScreenContainer extends Component {
 
@@ -29,12 +14,7 @@ class ArticleScreenContainer extends Component {
     console.log(article);
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView
-          scrollEnabled={true}
-          style={{
-            backgroundColor: 'white',
-          }}
-        >
+        <ScrollView>
           <Image source={{ uri: article.img.url }} style={{ height: 350 }}/>
           <View style={{margin: 15}}>
             <Text style={{

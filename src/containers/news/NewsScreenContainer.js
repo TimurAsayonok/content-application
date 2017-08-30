@@ -8,6 +8,7 @@ import {
   StatusBar
 } from 'react-native'
 import ResponsiveImage from 'react-native-responsive-image';
+import { Header } from '../../components'
 import { gql, graphql } from 'react-apollo'
 
 const FeedQuery = gql`
@@ -62,24 +63,7 @@ class NewsScreenContainer extends Component {
             backgroundColor: 'white',
           }}
         >
-          {!this.props.service && 
-            <View style={{
-              flex: 1,
-              marginTop: 30,
-              marginLeft: 20,
-              borderBottomColor: '#c9c9c9',
-              borderBottomWidth: 1
-            }}>
-              <Text style={{
-                fontSize: 40,
-                fontWeight: "900",
-                letterSpacing: 0.11,
-                color: "#000000"
-              }}>
-                All News
-              </Text>
-            </View>
-          }
+          {!this.props.service && <Header title="All News" />}
           <View style={{ flex: 1, margin: 12 }}>
             {articles && articles.map((article) => {
               return (
@@ -137,7 +121,6 @@ class NewsScreenContainer extends Component {
                     
                   </TouchableOpacity>
                 </View>
-                
               );
             })}
           </View>

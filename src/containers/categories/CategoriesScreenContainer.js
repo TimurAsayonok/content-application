@@ -6,23 +6,9 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native'
-import { gql, graphql } from 'react-apollo'
 import ResponsiveImage from 'react-native-responsive-image';
+import { Header } from '../../components'
 
-// const FeedQuery = gql`
-//   {
-//     tileset(t: Article){
-//       id
-//       title
-//       ts
-//       url
-//       author {
-//         img
-//         name
-//       }
-//     }
-//   }
-// `;
 const Categories = [
   {
     id: 1,
@@ -54,25 +40,10 @@ class CategoriesScreenContainer extends Component {
           scrollEnabled={false}
           style={{
             backgroundColor: 'white',
-            marginLeft: 20,
           }}
         >
-          <View style={{
-            flex: 1,
-            marginTop: 30,
-            borderBottomColor: '#c9c9c9',
-            borderBottomWidth: 1
-          }}>
-            <Text style={{
-              fontSize: 40,
-              fontWeight: "900",
-              letterSpacing: 0.11,
-              color: "#000000"
-            }}>
-              Categories
-            </Text>
-          </View>
-          <View style={{flex: 1, marginBottom: 12}}>
+          <Header title="Categories" />
+          <View style={{ flex: 1, marginBottom: 12, marginLeft: 20,}}>
             {Categories.map((category) => {
               return (
                 <TouchableOpacity onPress={() => {
