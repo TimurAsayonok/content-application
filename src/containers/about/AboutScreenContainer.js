@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
-  ScrollView,
-  TouchableOpacity
+  ScrollView
 } from 'react-native'
 import { Header, AboutComponent } from '../../components'
 

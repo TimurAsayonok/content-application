@@ -1,16 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import {
   View,
-  Text,
   ScrollView,
-  TouchableOpacity,
-  Image,
   ActivityIndicator
 } from 'react-native'
-import ResponsiveImage from 'react-native-responsive-image';
 import { Header, NewsComponent } from '../../components'
 import { fetchNews } from '../../actions/news/news'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import Styles from './styles'
 
 class NewsScreenContainer extends Component {
 
@@ -20,26 +17,19 @@ class NewsScreenContainer extends Component {
 
   componentWillMount() {
     const { dispatch, service } = this.props;
-    console.log(this.props);
     dispatch(fetchNews(service));
   }
 
   renderSpinner() {
-    return (<View style={{
-      flex: 1, position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      justifyContent: 'center',
-      alignItems: 'center'}}>
-      <ActivityIndicator />
-    </View>);
+    return (
+      <View style={Styles.activityIndicatorContainer}>
+        <ActivityIndicator />
+      </View>);
   }
 
   render() {
     const { articles, fetching, service } = this.props;
-    console.log(this.props);
+    
     if (fetching) {
       return this.renderSpinner();
     }
@@ -48,7 +38,8 @@ class NewsScreenContainer extends Component {
         <ScrollView>
           {!service && <Header title="All News" />}
           <NewsComponent 
-            articles={articles} 
+            articles={articles}
+            fetching={fetching}
             goToArticleScreen={(article) => {
               this.goToArticleScreen(article)
             }}

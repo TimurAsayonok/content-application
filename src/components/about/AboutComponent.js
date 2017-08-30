@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
-  ScrollView,
-  TouchableOpacity
+  Text
 } from 'react-native'
 import Styles from './styles'
 

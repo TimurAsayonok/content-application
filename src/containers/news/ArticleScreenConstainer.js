@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
-  ScrollView,
-  Image
+  ScrollView
 } from 'react-native'
 import { ArticleComponent } from '../../components'
 
@@ -12,7 +10,7 @@ class ArticleScreenContainer extends Component {
 
   render() {
     const { article } = this.props;
-    console.log(article);
+
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>

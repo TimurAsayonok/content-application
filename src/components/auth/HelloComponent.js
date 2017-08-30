@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import {
   View,
   Text,
-  ScrollView,
   TouchableOpacity
 } from 'react-native'
 import Styles from './styles'

@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
   ScrollView,
-  TouchableOpacity,
-  Image
 } from 'react-native'
 import { Header, CategoriesComponent } from '../../components'
 import { CATEGORIES } from '../../constants/commons'

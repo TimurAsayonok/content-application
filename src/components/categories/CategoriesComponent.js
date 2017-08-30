@@ -2,9 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import {
   View,
   Text,
-  ScrollView,
-  TouchableOpacity,
-  Image
+  TouchableOpacity
 } from 'react-native'
 import ResponsiveImage from 'react-native-responsive-image'
 import Styles from './styles'

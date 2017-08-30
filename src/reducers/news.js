@@ -1,3 +1,4 @@
+import * as Actions from '../constants/actions'
 
 const initialState = {
   news: [],
@@ -7,11 +8,11 @@ const initialState = {
 
 export default function (state = initialState, action){
   switch(action.type) {
-    case 'FETCH_NEWS_START': 
+    case Actions.FETCH_NEWS_START: 
       return { ...state, fetching: true }
-    case 'FETCH_NEWS_SUCCESS':
+    case Actions.FETCH_NEWS_SUCCESS:
       return { ...state, fetching: false, fetched: true, articles: action.payload.articles }
-    case 'FETCH_NEWS_ERROR':
+    case Actions.FETCH_NEWS_ERROR:
       return { ...state, error: 'Somthing happened' }
     default: 
       return state;

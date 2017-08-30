@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
-  ScrollView,
-  TouchableOpacity
+  ScrollView
 } from 'react-native'
-import { Header, HelloComponent } from '../../components';
-import { enterToApp } from '../../root';
+import { Header, HelloComponent } from '../../components'
+import { enterToApp } from '../../root'
 
 class HelloScreenContainer extends Component {
   render() {
