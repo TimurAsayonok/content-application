@@ -20,4 +20,6 @@ If you logout the application by clicking the "Exit" button on the "About" scree
 If you don't have access to the Internet, the latest news will be displayed on the "News" screen.
 
 # Demo
-You can clone this repo and execute the command  `react-native run-ios` or `react-native run-android` from the folder where the code is located
+You can clone this repo and execute the command `sudo npm install`,  `react-native run-ios` or `react-native run-android` from the folder where the code is located
+
+![alt text](https://github.com/TimurAsayonok/ContentApplication/blob/master/demo/democa.gif)
