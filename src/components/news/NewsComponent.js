@@ -6,7 +6,9 @@ import {
   Image
 } from 'react-native'
 import ResponsiveImage from 'react-native-responsive-image'
+import moment from 'moment'
 import Styles from './styles'
+
 
 class NewsComponent extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class NewsComponent extends Component {
 
   renderArticle(article) {
     const { goToArticleScreen } = this.props;
+    const articleTime = moment.unix(article.ts).fromNow();
 
     return(
       <View key={article.id} style={Styles.newsArticleContainer}>
@@ -29,7 +32,7 @@ class NewsComponent extends Component {
               style={Styles.logo} />
             <View style={Styles.newsArticleHeaderTextContainer}>
               <Text style={Styles.newsArticleHeaderTextAuthor}>by WP.pl</Text>
-              <Text style={Styles.newsArticleHeaderTextTime}>one hour ago</Text>
+              <Text style={Styles.newsArticleHeaderTextTime}>{articleTime}</Text>
             </View>
           </View>
           <View>

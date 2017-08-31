@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "graphql-tag": "^2.4.2",
+    "moment": "^2.18.1",
     "react": "16.0.0-alpha.12",
     "react-addons-update": "^15.6.0",
     "react-apollo": "^1.4.15",
