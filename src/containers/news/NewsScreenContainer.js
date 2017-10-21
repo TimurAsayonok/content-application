@@ -4,7 +4,7 @@ import {
   ScrollView,
   ActivityIndicator
 } from 'react-native'
-import { Header, NewsComponent } from '../../components'
+import { Header, NewsComponent, CustomStatusBar } from '../../components'
 import { fetchNews } from '../../actions/news/news'
 import { connect } from 'react-redux'
 import Styles from './styles'
@@ -35,6 +35,7 @@ class NewsScreenContainer extends Component {
     }
     return (
       <View style={{ flex: 1 }}>
+        {!service && <CustomStatusBar />}
         <ScrollView>
           {!service && <Header title="News" />}
           <NewsComponent 

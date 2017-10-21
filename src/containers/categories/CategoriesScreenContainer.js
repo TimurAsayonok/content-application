@@ -3,7 +3,7 @@ import {
   View,
   ScrollView,
 } from 'react-native'
-import { Header, CategoriesComponent } from '../../components'
+import { Header, CategoriesComponent, CustomStatusBar } from '../../components'
 import { CATEGORIES } from '../../constants/commons'
 
 
@@ -15,8 +15,9 @@ class CategoriesScreenContainer extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
+        <CustomStatusBar />
         <ScrollView
-          scrollEnabled={false}
+          scrollEnabled={true}
           style={{
             backgroundColor: 'white',
           }}

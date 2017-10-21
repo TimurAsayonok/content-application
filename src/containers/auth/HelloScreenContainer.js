@@ -3,7 +3,7 @@ import {
   View,
   ScrollView
 } from 'react-native'
-import { Header, HelloComponent } from '../../components'
+import { Header, HelloComponent, CustomStatusBar } from '../../components'
 import { enterToApp } from '../../root'
 import { login } from '../../actions/auth/auth'
 import { connect } from 'react-redux'
@@ -13,8 +13,9 @@ class HelloScreenContainer extends Component {
     console.log(this.props)
     return (
       <View style={{ flex: 1 }}>
+        <CustomStatusBar />
         <ScrollView
-          scrollEnabled={false}
+          scrollEnabled={true}
         >
           <Header title="Hello Screen" />
           <HelloComponent enterToApp={() => {this.goToApp()}}/>

@@ -4,6 +4,7 @@ import HelloComponent from './auth/HelloComponent'
 import CategoriesComponent from './categories/CategoriesComponent'
 import ArticleComponent from './news/ActicleComponent'
 import NewsComponent from './news/NewsComponent'
+import CustomStatusBar from './customComponents/CustomStatusBar'
 
 export {
   Header,
@@ -11,5 +12,6 @@ export {
   HelloComponent,
   CategoriesComponent,
   ArticleComponent,
-  NewsComponent
+  NewsComponent,
+  CustomStatusBar
 }
