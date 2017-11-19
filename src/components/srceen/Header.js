@@ -1,32 +1,22 @@
 import React, { Component } from 'react'
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity
-} from 'react-native'
+import PropTypes from 'prop-types'
+import { View, Text } from 'react-native'
+import Styles from './styles'
 
 class Header extends Component {
   render() {
-    return (     
-      <View style={{
-        flex: 1,
-        marginTop: 25,
-        marginLeft: 20,
-        borderBottomColor: '#c9c9c9',
-        borderBottomWidth: 1
-      }}>
-        <Text style={{
-          fontSize: 40,
-          fontWeight: "900",
-          letterSpacing: 0.11,
-          color: "#000000"
-        }}>
+    return (
+      <View style={Styles.container}>
+        <Text style={Styles.title}>
           {this.props.title}
         </Text>
       </View>
-    )
+    );
   }
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired
 }
 
 export default Header;

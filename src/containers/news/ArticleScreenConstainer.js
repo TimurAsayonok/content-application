@@ -3,7 +3,7 @@ import {
   View,
   ScrollView
 } from 'react-native'
-import { ArticleComponent, CustomStatusBar } from '../../components'
+import { ArticleComponent, CustomStatusBar } from 'components'
 
 
 class ArticleScreenContainer extends Component {

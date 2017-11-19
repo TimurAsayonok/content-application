@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   View,
   Text,
@@ -7,6 +8,7 @@ import {
 } from 'react-native'
 import ResponsiveImage from 'react-native-responsive-image'
 import moment from 'moment'
+
 import Styles from './styles'
 
 

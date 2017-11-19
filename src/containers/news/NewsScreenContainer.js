@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   View,
   ScrollView,
   ActivityIndicator
 } from 'react-native'
-import { Header, NewsComponent, CustomStatusBar } from '../../components'
-import { fetchNews } from '../../actions/news/news'
+import { Header, NewsComponent, CustomStatusBar } from 'components'
+import { fetchNews } from 'actions/news/news'
 import { connect } from 'react-redux'
 import Styles from './styles'
 

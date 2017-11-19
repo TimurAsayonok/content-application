@@ -3,10 +3,11 @@ import {
   View,
   ScrollView
 } from 'react-native'
-import { Header, AboutComponent, CustomStatusBar } from '../../components'
-import { logout } from '../../actions/auth/auth'
 import { connect } from 'react-redux'
-import { goToHelloScreen } from '../../root'
+
+import { Header, AboutComponent, CustomStatusBar } from 'components'
+import { logout } from 'actions/auth/auth'
+import { goToHelloScreen } from 'root'
 
 
 class AboutScreenContainer extends Component {

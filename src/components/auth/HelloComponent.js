@@ -1,15 +1,14 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   View,
   Text,
   TouchableOpacity
 } from 'react-native'
+
 import Styles from './styles'
 
 class HelloComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { enterToApp } = this.props;
@@ -19,9 +18,9 @@ class HelloComponent extends Component {
           This application is a test, serves as part of the portfolio. Done for the WP.pl company by Timur Asayonok.
           You can click the "Go To App" button to enter
         </Text>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={Styles.buttonContainer}
-          onPress={() => { enterToApp() }}
+          onPress={() => { enterToApp(); }}
         >
           <Text style={Styles.buttonText}>Go To App</Text>
         </TouchableOpacity>

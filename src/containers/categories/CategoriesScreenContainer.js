@@ -3,8 +3,8 @@ import {
   View,
   ScrollView,
 } from 'react-native'
-import { Header, CategoriesComponent, CustomStatusBar } from '../../components'
-import { CATEGORIES } from '../../constants/commons'
+import { Header, CategoriesComponent, CustomStatusBar } from 'components'
+import { CATEGORIES } from 'constants/commons'
 
 
 class CategoriesScreenContainer extends Component {

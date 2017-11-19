@@ -3,10 +3,12 @@ import {
   View,
   ScrollView
 } from 'react-native'
-import { Header, HelloComponent, CustomStatusBar } from '../../components'
-import { enterToApp } from '../../root'
-import { login } from '../../actions/auth/auth'
 import { connect } from 'react-redux'
+
+import { Header, HelloComponent, CustomStatusBar } from 'components'
+import { enterToApp } from 'root'
+import { login } from 'actions/auth/auth'
+
 
 class HelloScreenContainer extends Component {
   render() {
